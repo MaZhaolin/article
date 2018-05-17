@@ -4,6 +4,8 @@ date: 2018-05-17 13:13:15
 tags: linux
 ---
 
+
+
 ## deepin 下载安装
 
 官网下在镜像：https://www.deepin.org，把镜像解压后里面有u盘启动盘制作工具，使用U盘一键安装。
@@ -77,5 +79,37 @@ apt-get install nginx
 apt-get install mysql
 apt-get install php7.0
 apt-get install php7.0-fpm
+```
+
+配置nginx
+
+```nginx
+server {
+  listen 80 default_server;
+  listen [::]:80 default_server;
+  root /var/www/html;
+  server_name _;
+  
+  location / {
+    index index.htm index.html index.php;
+    # First attempt to serve request as file, then
+    # as directory, then fall back to displaying a 404.
+    try_files $uri $uri/ =404;
+  }
+  
+  location ~ \.php$ {
+    root /var/www/html; #指定php的根目录
+    fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    include fastcgi_params;
+  }
+}
+```
+
+安装php扩展示例，如使用`mysqli`则安装对应的包
+
+```shell
+sudo apt-get install php-mysql
 ```
 
