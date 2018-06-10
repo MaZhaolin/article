@@ -12,6 +12,8 @@ tags: linux
 
 用硬盘安装总是出现各种各样的问题，而且没有交换空间，会比较卡。
 
+<!--more-->
+
 ## 开发环境搭建
 
 ### 配置 oh my zsh
@@ -53,11 +55,11 @@ git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh
 插件配置
 
 ```js
-plugins: {
+plugins: (
   git
   z
   zsh-autosuggestion
-}	
+)
 ```
 
 ### NodeJs MongoDB 环境
