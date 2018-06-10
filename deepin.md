@@ -4,8 +4,6 @@ date: 2018-05-17 13:13:15
 tags: linux
 ---
 
-
-
 ## deepin 下载安装
 
 官网下在镜像：https://www.deepin.org，把镜像解压后里面有u盘启动盘制作工具，使用U盘一键安装。
@@ -71,6 +69,12 @@ apt-get install nodejs
 apt-get install npm 
 apt-get install mongondb
 npm install -g cnpm --registry=https://registry.npm.taobao.org
+```
+如果按照`cnpm`报错，可以先运行一下命令
+```shell
+npm set registry https://registry.npm.taobao.org # 注册模块镜像
+npm set disturl https://npm.taobao.org/dist # node-gyp 编译依赖的 node 源码镜像
+npm cache clean # 清空缓存
 ```
 
 ### PHP Nginx Mysql 环境
