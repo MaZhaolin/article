@@ -119,3 +119,9 @@ server {
 sudo apt-get install php-mysql
 ```
 
+### 开放端口
+
+```bash
+sudo /sbin/iptables -I INPUT -p tcp --dport 4396 -j ACCEPT
+```
+
